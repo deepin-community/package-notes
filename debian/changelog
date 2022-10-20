@@ -1,0 +1,88 @@
+package-notes (0.8) unstable; urgency=medium
+
+  * use LONG instead of BYTEs for binary fields
+
+ -- Luca Boccassi <bluca@debian.org>  Mon, 04 Apr 2022 19:52:18 +0100
+
+package-notes (0.7) unstable; urgency=medium
+
+  * dh: derive distro name at build time
+  * dh: pick debuginfod from DEBUGINFOD_URLS env var if available
+  * dh: install makefile include to automatically set LDFLAGS
+
+ -- Luca Boccassi <bluca@debian.org>  Mon, 07 Mar 2022 11:40:22 +0000
+
+package-notes (0.6) unstable; urgency=medium
+
+  * Mark package as Multi-Arch: foreign
+
+ -- Luca Boccassi <bluca@debian.org>  Sun, 20 Feb 2022 22:16:03 +0000
+
+package-notes (0.5) unstable; urgency=medium
+
+  [ Zbigniew Jędrzejewski-Szmek ]
+  * generator: add a hint how to use the output to the output
+  * generator: allow disabling READONLY
+  * rpm: skip (READONLY) with older linker versions
+  * Use -Wl,-dT
+  * generator: add help strings
+
+  [ Luca Boccassi ]
+  * Initial packaging (Closes: #1004357)
+  * Add architecture field
+  * Skip fields without value
+  * Debian: use -Wl,dT
+
+  [ Zbigniew Jędrzejewski-Szmek ]
+  * generator: add description in help output
+  * generator: add --version argument
+  * generator: disallow abbreviated option names
+  * generator: rename program to not have .py suffix
+  * generator: fix two minor issues reported by pylint
+  * debian: stop using dh-exec
+
+  [ Mark Wielaard ]
+  * generate-package-notes.py: Add --debuginfod argument
+
+  [ Victor Westerhuis ]
+  * Add Debian debuginfod server in dh_package_notes
+  * Provide dh-sequence-package_notes
+  * Fix Python installation
+  * Add manpage for generate-package-notes
+
+  [ Zbigniew Jędrzejewski-Szmek ]
+  * rpm: rename srpm macros file
+  * rpm: fix filename in macro
+  * rpm: conditionalize all macros on %_package_note_file being defined
+  * rpm: make _generate_package_note_file always recreate the file
+  * rpm: use $RPM_PACKAGE_VERSION variable to refer to the package version
+  * rpm: also voidify the macros if we're on a noarch build
+  * rpm: use %{buildsubdir} in %_package_note_file if defined
+  * rpm: allow unsetting %_package_note_readonly to drop the READONLY
+    attribute
+  * rpm: add %_package_note_linker and document everything (rhbz#2043178,
+    rhbz#2043368)
+  * rpm: disable notes with linkers other than bfd
+  * rpm: disable notes when clang toolchain is used on arm
+  * generator: do not write zeroes to the linker script
+
+  [ Frantisek Sumsal ]
+  * ci: update repos before installing packages
+
+  [ Zbigniew Jędrzejewski-Szmek ]
+  * rpm: use named arguments
+
+  [ Luca Boccassi ]
+  * python: add --cpe auto
+  * shell: add --cpe auto
+  * man: document new --cpe auto option
+  * shell: add --root option
+  * python: add --root option
+  * man: document new --root option
+  * python: parse files in gather_data rather than parse_args
+  * tests: add resources and tests for --auto-cpe and --root
+  * rpm: use --cpe auto
+  * debian: bump debhelper-compat version to 13
+  * README: note we have both python and shell implementations
+
+ -- Luca Boccassi <bluca@debian.org>  Mon, 31 Jan 2022 23:43:02 +0000
